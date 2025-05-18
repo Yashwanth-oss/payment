@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Payment</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <div id="main">
+
+    <header>
+      <h1 id="title"> MAKE A PAYMENT </h1>
+      <p class="sub-text"> <a href="" class="log-in-link">Log in</a> or use the form below to pay the balance on your order/invoice. When you have completed the form, click the 'Pay' button to submit your payment. Be sure to only click the 'Pay' button once to guarantee your credit card is not charged multiple times.</p>
+      <p class="sub-text">Once your payment is submitted you will receive a confirmation and receipt by e-mail.</p>
+      <div class="head-images">
+        <img src="https://www.texvisions.com/design_tool/data/test_logos/authorize_net.gif">
+        <img src="https://www.texvisions.com/design_tool/data/test_logos/comodo-trusted-site-seal.png">
+      </div>
+      <div class="head-images">
+        <img src="https://www.texvisions.com/design_tool/data/test_logos/visa.png" alt="visa">
+        <img src="https://www.texvisions.com/design_tool/data/test_logos/mastercard.png" alt="mastercard">
+        <img src="https://www.texvisions.com/design_tool/data/test_logos/amex.png" alt="american express">
+        <img src="https://www.texvisions.com/design_tool/data/test_logos/discover.png" alt="discover">
+      </div>
+    </header>
+
+    <form action="#" id="payment-form" onsubmit="null;return false">
+
+      <div class="form-title">
+        <p> Sales Order / Invoice Information </p>
+      </div>
+
+      <div class="entry-section">
+        <label id="SOSI-label" for="order-invoice" class="required"> SO# / Invoice #
+        </label>
+        <label id="SOSI-note" for="order-invoice" class="note">Your invoice/order number is 10 characters long and ends with SO or SI. <br>It can be found at the top of your order confirmation or invoice statement. <br>Enter the 10 characters including underscores (ex: 000_000_SO or 000_000_SI). <br>Do not include revision numbers.</label>
+        <input 
+              type="text"
+              name="order-invoice"
+              id="order-invoice"
+              class="entry order-invoice"
+              placeholder="000"
+              pattern="[0-9]{3}_"
+              required
+        >
+        <span>-</span>
+        <input 
+              type="text"
+              name="order-invoice"
+              id="order-invoice"
+              class="entry order-invoice"
+              placeholder="000"
+              pattern="[0-9]{3}_"
+              required
+        >
+        <span>-</span>
+        <select id="dropdown" name="gamer-type" class="entry order-invoice" required>
+          <option selected disabled></option>
+          <option value="SO"> SO </option>
+          <option value="SI"> SI </option>
+        </select>
+      </div>
+
+      <div class="entry-section">
+        <label id="amount-label" for="amount" class="required"> Amount
+        </label>
+        <label id="amount-note" for="amount" class="note"> Enter the total amount of your order/invoice payment as indicated on your order confirmation or invoice. <br>Please enter this value without using commas.
+        </label>
+        <input
+              type="number"
+              name="amount"
+              id="amount"
+              class="entry amount"
+              placeholder="0.00"
+              min="0"
+              required
+        >
+      </div>
+
+      <div class="entry-section">
+        <label id="email-label" for="email" class="required"> Send receipt to: </label>
+        <input
+              type="email"
+              name="email"
+              id="email"
+              class="entry email"
+              placeholder="you@email.com"
+              required
+        >
+      </div>
+
+      <div class="entry-section new-card"> <p class="section-title"> New card </p>
+
+        <div class="entry-section">
+          <label id="card-label" for="card-number" class="required"> Card number </label>
+          <input
+                type="text"
+                name="card-number"
+                id="card-number"
+                class="entry card-number"
+                placeholder=""
+                value=""
+                pattern="[0-9]{16}"
+                required
+          > <img id="creditCard" src="https://www.texvisions.com/design_tool/data/test_logos/blank_card.png" alt="card" width="51" height="32">
+        </div>
+
+        <div class="entry-section">
+          <label id="date-label" for="date" class="required"> Valid thru (mm/yy) </label>
+          <input
+                type="number"
+                name="date"
+                id="month"
+                class="entry date"
+                max="12"
+                required
+          >
+          <span>/</span>
+          <input
+                type="number"
+                name="date"
+                id="year"
+                class="entry date"
+                max="99"
+                required
+          >
+        </div>
+
+        <div class="entry-section">
+          <label id="cvv-label" for="cvv" class="required"> CVV2 </label>
+          <label id="cvv-note" for="cvv" class="note"> 3 digit number on back of card (for Amex: on front, above card number) </label>
+          <input
+                type="text"
+                name="cvv"
+                id="cvv"
+                class="entry cvv"
+                pattern="[0-9]{3}"
+                required
+          >
+        </div>
+
+        <div class="entry-section">
+          <label id="cardholder-label" for="cardholder" class="required"> Cardholder's Name </label>
+          <input
+                type="text"
+                name="cardholder"
+                id="cardholder"
+                class="entry cardholder"
+                required
+          >
+        </div>
+
+      </div>
+
+      <div class="entry-section">
+        <button type="submit" id="submit" class="submit-button">
+          PAY
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <div id="receipt">
+    <div id="rcpt-title" class="rcpt-title">Receipt</div>
+    <div id="rcpt-email" class="rcpt-item"></div>
+    <div id="rcpt-amount" class="rcpt-item"></div>
+    <div id="rcpt-card" class="rcpt-item"></div>
+    <button id="exit" class="rcpt-item">Close or <br> Make Another Payment</button>
+  </div>
+
+</body>
+</html>
