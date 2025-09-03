@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unique Payment Page</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="payment-icons">
+      <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" />
+      <img src="https://img.icons8.com/color/48/mastercard-logo.png" alt="MasterCard" />
+      <img src="https://img.icons8.com/color/48/paypal.png" alt="PayPal" />
+    </div>
+
+    <div class="card-preview" id="card">
+      <div class="card-front">
+        <div class="card-number" id="card-number">**** **** **** ****</div>
+        <div class="card-holder" id="card-holder">Your Name</div>
+        <div class="card-expiry" id="card-expiry">MM/YY</div>
+      </div>
+      <div class="card-back">
+        <div class="cvv-label">CVV</div>
+        <div class="cvv-display" id="cvv-display">***</div>
+      </div>
+    </div>
+
+    <form id="payment-form">
+      <h2>Payment Details</h2>
+
+      <label for="cardNumber">Card Number</label>
+      <input type="text" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456"/>
+
+      <label for="cardName">Cardholder Name</label>
+      <input type="text" id="cardName" placeholder="John Doe"/>
+
+      <label for="expiry">Expiry</label>
+      <input type="text" id="expiry" maxlength="5" placeholder="MM/YY"/>
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" maxlength="3" placeholder="123"/>
+
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
